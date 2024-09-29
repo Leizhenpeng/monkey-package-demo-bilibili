@@ -1,0 +1,640 @@
+info:
+    description: Bilibili-Dom-Motion
+    title: 我的bilibili
+    version: 1.0.0
+openapi: 3.1.0
+paths:
+    /monkey/bilibili/video/danmu-post:
+        post:
+            operationId: postDanmu
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: The content of the danmu (bullet comment) to be posted on a Bilibili video.
+                                    type: string
+                            required:
+                                - value
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: The content of the bullet comment to be posted on a Bilibili video.
+                                        type: string
+                                    status:
+                                        description: Status of the danmu post, options are "visible" or "hidden"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 发送弹幕
+    /monkey/bilibili/video/random:
+        post:
+            operationId: playRandomVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        type: string
+                                    status:
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: Play a random Bilibili video
+    /monkey/bilibili/video/coin:
+        get:
+            operationId: getBilibiliVideoCoins
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: Param A in string type, need more details.
+                                        type: string
+                                    status:
+                                        description: Status of the coin sending process. Possible values are "success" and "failed".
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 给Bilibili 视频的投币
+    /monkey/bilibili/video/coment/hot:
+        get:
+            operationId: getBilibiliHotComments
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 返回的热门评论数据
+                                        type: string
+                                    status:
+                                        description: 热门评论的状态，例如"active"表示活跃评论，默认为"active"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 热门评论
+    /monkey/bilibili/video/comment-post:
+        get:
+            operationId: postBilibiliComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: 要发布的评论内容
+                                    type: string
+                            type: object
+                required: true
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 评论的内容
+                                        type: string
+                                    status:
+                                        description: 发布评论的状态信息
+                                        type: string
+                                type: object
+                    description: new desc
+                "400":
+                    description: 请求错误
+                "500":
+                    description: 服务器内部错误
+            summary: 发布评论
+            x-openai-isConsequential: false
+    /monkey/bilibili/video/comment/del:
+        get:
+            operationId: deleteBilibiliComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: 要删除的评论数量
+                                    type: integer
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 最新评论的详细信息
+                                        type: string
+                                    status:
+                                        description: 删除评论的状态，可以是"success"表示删除成功，"failed"表示删除失败，默认为"success"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 删除最新评论
+    /monkey/bilibili/video/comment/new:
+        get:
+            operationId: getBilibiliNewComments
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 最新评论的内容
+                                        type: string
+                                    status:
+                                        description: 最新评论的状态信息
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 最新评论
+    /monkey/bilibili/video/danmu/show:
+        get:
+            operationId: getBilibiliVideoDanmu
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 开启视频弹幕的数据，格式为字符串
+                                        type: string
+                                    status:
+                                        description: 视频弹幕的状态，可以是"开启"或"关闭"，默认为"关闭"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 开启视频弹幕
+    /monkey/bilibili/video/fast:
+        get:
+            operationId: fastBilibiliVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: 设置播放速度
+                                    type: number
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        type: string
+                                    status:
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 设置视频播放倍数
+    /monkey/bilibili/video/favorite/add:
+        get:
+            operationId: addBilibiliVideoFavorite
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    default: 默认收藏夹
+                                    description: 要添加的收藏夹
+                                    type: string
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 添加视频到收藏夹的结果
+                                        type: string
+                                    status:
+                                        description: 视频的状态，可能的取值为"added"或"removed"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 添加视频到收藏夹
+    /monkey/bilibili/video/fullscreen:
+        get:
+            operationId: setBilibiliVideoFullscreen
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 设置全屏模式的数据，类型为string，默认值待补充
+                                        type: string
+                                    status:
+                                        description: 设置全屏模式的状态，可以是"on"或"off"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 设置全屏模式
+    /monkey/bilibili/video/like:
+        get:
+            operationId: getBilibiliVideoLikes
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: Parameter to indicate the number of likes for Bilibili videos. It is a string type.
+                                        type: string
+                                    status:
+                                        description: Status of the video likes. Possible values are "liked" and "not liked".
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: Bilibili 视频的点赞
+    /monkey/bilibili/video/play:
+        post:
+            operationId: playVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: Parameter to specify the Bilibili video to play. The data should be provided as a string in the format of the video ID or URL.
+                                        type: string
+                                    status:
+                                        description: Status of the video playback
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 切换当前播放视频的状态，继续播放或者暂停播放
+    /monkey/bilibili/video/subtitle/show:
+        get:
+            operationId: getBilibiliVideoSubtitles
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 视频的字幕内容
+                                        type: string
+                                    status:
+                                        description: 视频字幕的处理状态，包括"processing"（处理中）和"completed"（已完成）
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 视频字幕
+    /monkey/bilibili/video/time/check:
+        get:
+            operationId: checkBilibiliVideoTime
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: 时间值（秒）
+                                    type: integer
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 设置视频的播放时间，格式为hh:mm:ss
+                                        type: string
+                                    status:
+                                        description: 视频播放的状态，可以是"play"表示播放，"pause"表示暂停，"stop"表示停止
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 设置视频播放时间
+    /monkey/bilibili/video/undanmu/show:
+        get:
+            operationId: hideBilibiliDanmu
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 关闭视频弹幕的返回数据。
+                                        type: string
+                                    status:
+                                        description: 关闭弹幕的状态，"on"表示开启，"off"表示关闭，默认为"off"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 关闭视频弹幕
+    /monkey/bilibili/video/unlike:
+        get:
+            operationId: unlikeBilibiliVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 取消点赞 Bilibili 视频的返回数据
+                                        type: string
+                                    status:
+                                        description: 取消点赞 Bilibili 视频的状态，可选值为 "success" 或 "fail"。
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 取消点赞 Bilibili 视频
+    /monkey/bilibili/video/unup/follow:
+        get:
+            operationId: unfollowBilibiliUp
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 取消关注的结果信息
+                                        type: string
+                                    status:
+                                        description: 取消关注的状态，可以是"成功"或"失败"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 取消关注 UP 主
+    /monkey/bilibili/video/up/follow:
+        get:
+            operationId: followBilibiliUp
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: UP 主的关注信息
+                                        type: string
+                                    status:
+                                        description: UP 主的关注状态
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 关注 UP 主
+    /monkey/bilibili/video/up/msg:
+        post:
+            operationId: sendMessageToUp
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: 要发送的消息
+                                    type: string
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 向 UP 主发送的消息的内容
+                                        type: string
+                                    status:
+                                        description: 与 UP 主的消息发送状态，可能的取值包括：成功、失败、待发送，默认为成功
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 向 UP 主发送消息
+    /monkey/bilibili/video/volume:
+        get:
+            operationId: getBilibiliVideoVolume
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                value:
+                                    description: 音量值（0 到 1 之间）
+                                    type: number
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 视频音量的设置数据
+                                        type: string
+                                    status:
+                                        description: 设置音量的状态，可以是"mute"（静音），"low"（低音量），"medium"（中音量），"high"（高音量）
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 设置视频音量
+    /monkey/bilibili/video/volume/mute:
+        get:
+            operationId: muteBilibiliVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 设置视频声音的状态，可选值为 "on" 或 "off"，默认为 "on"
+                                        type: string
+                                    status:
+                                        description: 设置视频声音的状态，可选值为"on"或"off"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 设置开启视频声音
+    /monkey/bilibili/video/volume/unmute:
+        get:
+            operationId: setBilibiliVideoVolume
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                description: new desc
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                properties:
+                                    data:
+                                        description: 关闭视频音量的数据
+                                        type: string
+                                    status:
+                                        description: 视频音量的状态，可以是"on"或者"off"
+                                        type: string
+                                type: object
+                    description: new desc
+                default:
+                    description: ""
+            summary: 关闭视频音量
+servers:
+    - url: https://local.gptsmotion.com/v1

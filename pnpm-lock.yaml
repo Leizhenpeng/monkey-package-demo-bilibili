@@ -1,0 +1,13 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      next-monkey:
+        specifier: link:/Users/river/dev/tsPool/monkey
+        version: link:../../tsPool/monkey

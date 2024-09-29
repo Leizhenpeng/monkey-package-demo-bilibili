@@ -1,0 +1,15 @@
+{
+	"name": "bilibili-monkey-demo",
+	"private": true,
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"dev": "monkey dev",
+		"build": "monkey build",
+		"prepare": "monkey prepare"
+	},
+	"devDependencies": {
+		"next-monkey": "link:/Users/river/dev/tsPool/monkey"
+	}
+}
