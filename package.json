@@ -1,15 +1,21 @@
 {
-	"name": "bilibili-monkey-demo",
-	"private": true,
+	"name": "bilibili-monkey",
+	"version": "0.0.4",
 	"files": [
 		"dist"
 	],
 	"scripts": {
 		"dev": "monkey dev",
 		"build": "monkey build",
-		"prepare": "monkey prepare"
+		"prepare": "monkey prepare",
+		"release": "bumpp && monkey build && npm publish"
 	},
 	"devDependencies": {
+		"bumpp": "^9.6.1",
 		"next-monkey": "link:/Users/river/dev/tsPool/monkey"
+	},
+	"dependencies": {
+		"ext-msg": "^0.0.8",
+		"human-being": "^0.0.5"
 	}
 }
