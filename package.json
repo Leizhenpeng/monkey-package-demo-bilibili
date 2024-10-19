@@ -8,7 +8,8 @@
 		"dev": "monkey dev",
 		"build": "monkey build",
 		"prepare": "monkey prepare",
-		"release": "bumpp && monkey build && npm publish && monkey publish"
+		"release": "bumpp && monkey build && npm publish --no-git-checks",
+		"publish": "monkey publish"
 	},
 	"devDependencies": {
 		"bumpp": "^9.6.1",
