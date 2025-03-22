@@ -1,6 +1,6 @@
 {
   "name": "bilibili",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "author": "river",
   "description": "monkey #1 package ! Bilibili video play page atom.",
   "type": "dom",
@@ -15,7 +15,7 @@
   ],
   "default_page": "https://www.bilibili.com",
   "repository": "https://github.com/leizhenpeng/bilibili-monkey",
-  "manifest": "https://cdn.jsdelivr.net/npm/bilibili-monkey@0.0.7/dist/manifest.json",
-  "download": "https://cdn.jsdelivr.net/npm/bilibili-monkey@0.0.7/dist/index.js",
-  "openapi": "https://cdn.jsdelivr.net/npm/bilibili-monkey@0.0.7/dist/openapi.yaml"
+  "manifest": "https://cdn.jsdelivr.net/npm/bilibili-monkey@0.0.9/dist/manifest.json",
+  "download": "https://cdn.jsdelivr.net/npm/bilibili-monkey@0.0.9/dist/index.js",
+  "openapi": "https://cdn.jsdelivr.net/npm/bilibili-monkey@0.0.9/dist/openapi.yaml"
 }
