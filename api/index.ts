@@ -7,7 +7,7 @@ import { newJob, human } from 'human-being';
 init_win_transport({ namespace: 'next-monkey' });
 const socket = io<any>();
 
-console.error(202422002);
+console.error(20251003);
 
 socket.on('bilibili.video.play', async () => {
     return await video_play();
